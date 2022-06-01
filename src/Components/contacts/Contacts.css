@@ -1,0 +1,15 @@
+.container-fluid-abc {
+    padding: 50px;
+}
+.contact-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.actions{
+    opacity: 0;
+}
+
+div:hover .actions{
+    opacity: 1;
+}
