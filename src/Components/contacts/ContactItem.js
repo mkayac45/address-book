@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Avatar from 'react-avatar'
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteContact } from '../../Actions/ContactActions';
 import "./Contacts.css"
+import { DeleteModal } from './DeleteModal';
 
 const ContactItem = ({contact}) => {
     const {id,name,phone,email,address} = contact;
     const {street,suite,city,zipcode} = address;
     const dispatch = useDispatch();
+    const [modalShow, setModalShow] = useState(false);
   return (
     <div className='card mt-4'>
     <div className="card-body">
@@ -36,13 +38,18 @@ const ContactItem = ({contact}) => {
             </span>
             </Link>
            
-            <span className="btn btn-danger my-1" onClick={()=> dispatch(deleteContact(id))}>
+            <span className="btn btn-danger my-1" onClick={() => setModalShow(true)}>
                 <i className="fa fa-trash"/>
             </span>
             
         </div>    
     </div>
     </div>
+                <DeleteModal
+                 show={modalShow}
+                 onHide={() => setModalShow(false)}
+                 onDelete={()=> {dispatch(deleteContact(id));setModalShow(false);}}
+                />
         </div>
 )
 }
