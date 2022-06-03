@@ -7,8 +7,7 @@ import "./Contacts.css"
 import { DeleteModal } from './DeleteModal';
 
 const ContactItem = ({contact}) => {
-    const {id,name,phone,email,address} = contact;
-    const {street,suite,city,zipcode} = address;
+    const {id,name,phone,email} = contact;
     const dispatch = useDispatch();
     const [modalShow, setModalShow] = useState(false);
   return (
@@ -23,7 +22,6 @@ const ContactItem = ({contact}) => {
                 <li className="list-group-item">{name}</li>
                 <li className="list-group-item">{phone}</li>
                 <li className="list-group-item">{email}</li>
-                <li className="list-group-item">{street}</li>
             </ul>
         </div>
         <div className='col-md-1 d-flex flex-column align-items-center actions justify-content-center d-flex'>
@@ -50,7 +48,7 @@ const ContactItem = ({contact}) => {
                  onHide={() => setModalShow(false)}
                  onDelete={()=> {dispatch(deleteContact(id));setModalShow(false);}}
                 />
-        </div>
+    </div>
 )
 }
 

@@ -15,7 +15,7 @@ export const EditContact = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [web, setWeb] = useState("");
+  const [website, setWeb] = useState("");
   const [company, setCompany] = useState("");
   const [city, setCity] = useState("");
   const [street, setStreet] = useState("");
@@ -28,7 +28,7 @@ export const EditContact = (props) => {
       setName(contact.name);
       setEmail(contact.email);
       setPhone(contact.phone);
-      setWeb(contact.web);
+      setWeb(contact.website);
       setCompany(contact.company);
       setCity(contact.city);
       setStreet(contact.street);
@@ -44,14 +44,13 @@ export const EditContact = (props) => {
       name: name,
       email: email,
       phone: phone,
-      web: web,
+      website: website,
       company: company,
-      address: {
-        city: city,
-        street: street,
-        suite: suite,
-        zipcode: zipcode,
-      },
+      city: city,
+      street: street,
+      suite: suite,
+      zipcode: zipcode,
+ 
     });
     dispatch(updateContact(update_contact));
     navigate("/");
@@ -101,7 +100,7 @@ export const EditContact = (props) => {
               type="text"
               className="form-control"
               placeholder="Enter Your WebSite"
-              value={web}
+              value={website}
               onChange={(e) => setWeb(e.target.value)}
             />
           </div>

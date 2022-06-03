@@ -13,7 +13,7 @@ const AddContact = () => {
   const [name,setName] = useState("");
   const [email,setEmail] = useState("");
   const [phone,setPhone] = useState("");
-  const [web,setWeb] = useState("");
+  const [website,setWeb] = useState("");
   const [company,setCompany] = useState("");
   const [city,setCity] = useState("");
   const [street,setStreet] = useState("");
@@ -27,14 +27,13 @@ const AddContact = () => {
       name:name,
       email:email,
       phone:phone,
-      web:web,
+      website:website,
       company:company,
-      address:{
       city:city,
       street:street,
       suite:suite,
       zipcode:zipcode,
-      }
+
       
     }
     dispatch(addContact(new_contact))
@@ -82,7 +81,7 @@ const AddContact = () => {
                   type="text"
                   className='form-control'
                   placeholder='Enter Your WebSite' 
-                  value={web}
+                  value={website}
                   onChange={(e) => setWeb(e.target.value)}
                   />
               </div>
