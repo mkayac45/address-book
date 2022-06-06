@@ -10,18 +10,20 @@ const ContactItem = ({contact}) => {
     const {id,name,phone,email} = contact;
     const dispatch = useDispatch();
     const [modalShow, setModalShow] = useState(false);
+    
+   
   return (
-    <div className='card mt-4'>
+    <div className='card mt-5 border-dark bg-dark d-flex '>
     <div className="card-body">
     <div className='row'>
         <div className='col-md-2 align-items-center justify-content-center d-flex' >
             <Avatar className='contact-img' name ={name} size="110" round={true}/>
         </div>
-        <div className='col-md-9 align-item-center'>
+        <div className='col-md-9 align-item-center '>
             <ul className="list-group" >
-                <li className="list-group-item">{name}</li>
-                <li className="list-group-item">{phone}</li>
-                <li className="list-group-item">{email}</li>
+                <li className="list-group-item list-group-item-dark ">{name}</li>
+                <li className="list-group-item list-group-item-dark">{phone}</li>
+                <li className="list-group-item list-group-item-dark">{email}</li>
             </ul>
         </div>
         <div className='col-md-1 d-flex flex-column align-items-center actions justify-content-center d-flex'>
@@ -31,7 +33,7 @@ const ContactItem = ({contact}) => {
             </span>
             </Link>
             <Link to={`/contacts/edit/${id}`}>
-            <span className="btn btn-primary my-1">
+            <span className="btn btn-primary my-1" alt="edit">
                 <i className="fa fa-pen"/>
             </span>
             </Link>
@@ -39,6 +41,8 @@ const ContactItem = ({contact}) => {
             <span className="btn btn-danger my-1" onClick={() => setModalShow(true)}>
                 <i className="fa fa-trash"/>
             </span>
+
+            
             
         </div>    
     </div>
@@ -49,6 +53,10 @@ const ContactItem = ({contact}) => {
                  onDelete={()=> {dispatch(deleteContact(id));setModalShow(false);}}
                 />
     </div>
+    
+    
+
+
 )
 }
 

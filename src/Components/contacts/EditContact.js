@@ -9,6 +9,7 @@ export const EditContact = (props) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const hStyle = { color: 'white' };
   const contact = useSelector((state) =>
     state.contact.contacts.find((x) => x.id == id)
   );
@@ -21,6 +22,12 @@ export const EditContact = (props) => {
   const [street, setStreet] = useState("");
   const [suite, setSuite] = useState("");
   const [zipcode, setZipcode] = useState("");
+  const [country, setCountry] = useState("");
+  const [aaddress, setAaddress] = useState("");
+  const [ins,setIns] = useState("");
+  const [tw,setTw] = useState("");
+  const [git,setGit] = useState("");
+  const [lk,setLk] = useState("");
 
   useEffect(() => {
     if (contact != undefined && id != undefined) {
@@ -34,6 +41,12 @@ export const EditContact = (props) => {
       setStreet(contact.street);
       setSuite(contact.suite);
       setZipcode(contact.zipcode);
+      setCountry(contact.country);
+      setAaddress(contact.aaddress);
+      setIns(contact.ins);
+      setTw(contact.tw);
+      setGit(contact.git);
+      setLk(contact.lk);
     }
   }, [contact]);
 
@@ -50,6 +63,13 @@ export const EditContact = (props) => {
       street: street,
       suite: suite,
       zipcode: zipcode,
+      country:country,
+      aaddress:aaddress,
+      ins:ins,
+      tw:tw,
+      git:git,
+      lk:lk,
+      
  
     });
     dispatch(updateContact(update_contact));
@@ -58,106 +78,206 @@ export const EditContact = (props) => {
 
   return (
     <div style={{ marginTop: 50 }}>
-      <div className="card-header">{disabled ? "View Contact":"Edit Contact"}</div>
+      <div className="card-header bg-dark " style={hStyle} >{disabled ? "View Contact":"Edit Contact"}</div>
       <div className="card-body">
         <form onSubmit={(e) => onUpdateContact(e)}>
-          <div className="form-group m-2">
+          <div className="input-group m-2">
+            <span class="input-group-text" id="addon-wrapping">
+            <i class="fa-duotone fa-pen-field"></i>
+            &nbsp;&nbsp;Ad/Soyad</span>
             <input
             disabled = {disabled}
               type="text"
               className="form-control"
-              placeholder="Enter Your Name"
+              placeholder="Ad/Soyad Giriniz"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
 
-          <div className="form-group m-2">
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping">
+          <i class="fa-solid fa-envelope"></i>
+          &nbsp;&nbsp;Email</span>
             <input
             disabled = {disabled}
               type="text"
               className="form-control"
-              placeholder="Enter Your Mail"
+              placeholder="Mail adresinizi giriniz."
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
-          <div className="form-group m-2">
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping">
+          <i class="fa-solid fa-phone"></i>
+          &nbsp;&nbsp;Telefon Numarası</span>
             <input
             disabled = {disabled}
               type="text"
               className="form-control"
-              placeholder="Enter Your Phone Number"
+              placeholder="Telefon Numaranızı Giriniz"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
           </div>
 
-          <div className="form-group m-2">
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping">
+          <i class="fa-solid fa-barcode"></i>
+          &nbsp;&nbsp;Website</span>
             <input
             disabled = {disabled}
               type="text"
               className="form-control"
-              placeholder="Enter Your WebSite"
+              placeholder="WebSite adresinizi giriniz."
               value={website}
               onChange={(e) => setWeb(e.target.value)}
             />
           </div>
 
-          <div className="form-group m-2">
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping">
+          <i class="fa-brands fa-instagram"></i>
+          &nbsp;&nbsp;İnstagram</span>
             <input
             disabled = {disabled}
               type="text"
               className="form-control"
-              placeholder="Enter Your Company Name"
+              placeholder="İnstagram adresinizi giriniz."
+              value={ins}
+              onChange={(e) => setIns(e.target.value)}
+            />
+          </div>
+
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping">
+          <i class="fa-brands fa-twitter"></i>
+          &nbsp;&nbsp;Twitter</span>
+            <input
+            disabled = {disabled}
+              type="text"
+              className="form-control"
+              placeholder="Twitter adresinizi giriniz."
+              value={tw}
+              onChange={(e) => setTw(e.target.value)}
+            />
+          </div>
+
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping">
+          <i class="fa-brands fa-github"></i>
+          &nbsp;&nbsp;Github</span>
+            <input
+            disabled = {disabled}
+              type="text"
+              className="form-control"
+              placeholder="Github adresinizi giriniz."
+              value={git}
+              onChange={(e) => setGit(e.target.value)}
+            />
+          </div>
+
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping">
+          <i class="fa-brands fa-linkedin"></i>
+          &nbsp;&nbsp;Linkedln</span>
+            <input
+            disabled = {disabled}
+              type="text"
+              className="form-control"
+              placeholder="Linkedln adresinizi giriniz."
+              value={lk}
+              onChange={(e) => setLk(e.target.value)}
+            />
+          </div>
+
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping">
+          <i class="fa-brands fa-creative-commons"></i>
+          &nbsp;&nbsp;Şirket İsmi</span>
+            <input
+            disabled = {disabled}
+              type="text"
+              className="form-control"
+              placeholder="Şirket İsminizi Giriniz"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
             />
           </div>
 
-          <div className="form-group m-2">
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping">Ülke İsmi</span>
             <input
             disabled = {disabled}
               type="text"
               className="form-control"
-              placeholder="Enter Your City"
+              placeholder="Şirket İsminizi Giriniz"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+            />
+          </div>
+
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping">Şehir</span>
+            <input
+            disabled = {disabled}
+              type="text"
+              className="form-control"
+              placeholder="Yaşadığınız Şehri Giriniz."
               value={city}
               onChange={(e) => setCity(e.target.value)}
             />
           </div>
 
-          <div className="form-group m-2">
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping">Sokak</span>
             <input
             disabled = {disabled}
               type="text"
               className="form-control"
-              placeholder="Enter Your Street"
+              placeholder="Sokağı giriniz."
               value={street}
               onChange={(e) => setStreet(e.target.value)}
             />
           </div>
 
-          <div className="form-group m-2">
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping ">Apartman</span>
             <input
             disabled = {disabled}
               type="text"
               className="form-control"
-              placeholder="Enter Your Suite"
+              placeholder="Apartman İsmini giriniz."
               value={suite}
               onChange={(e) => setSuite(e.target.value)}
             />
           </div>
-          <div className="form-group m-2">
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping">PostaKodu</span>
             <input
             disabled = {disabled}
               type="text"
               className="form-control"
-              placeholder="Enter Your ZipCode"
+              placeholder="Posta kodunu giriniz."
               value={zipcode}
               onChange={(e) => setZipcode(e.target.value)}
             />
           </div>
+
+          <div className="input-group m-2">
+          <span class="input-group-text" id="addon-wrapping ">Açık Address</span>
+            <input
+            disabled = {disabled}
+              type="text"
+              className="form-control"
+              placeholder="Açık Adresi Giriniz"
+              value={aaddress}
+              onChange={(e) => setAaddress(e.target.value)}
+            />
+          </div>
+
           {!disabled && <button className="btn btn-primary" type="submit">
             Update Add
           </button>}
