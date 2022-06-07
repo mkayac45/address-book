@@ -267,7 +267,7 @@ export const EditContact = (props) => {
           </div>
 
           <div className="input-group m-2">
-          <span class="input-group-text" id="addon-wrapping ">Açık Address</span>
+          <span class="input-group-text" id="addon-wrapping ">Açık Adres</span>
             <input
             disabled = {disabled}
               type="text"

@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import { contactReducer } from '../Reducers/contactReducer';
 import "../Components/contacts/Contacts.css"
-
 export const Navbar = (props) => {
 
   
@@ -16,16 +14,20 @@ export const Navbar = (props) => {
             </div>
 
 
-            
-            <form className="form-inline my-2 my-lg-0 d-flex justify-content-center">
-            <input className="form-control mr-sm-1 justify-content-center " type="search" placeholder="Ara" aria-label="Search"
-            onChange={(e) => props.setSearch (e.target.value)}
-            
-            />
-            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">ARA</button>
-            </form>
-          
-
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto ml-auto">
+            <li class="nav-item">
+                <div class="justify-content-md-center">
+                    <form class="form-inline my-2 my-lg-0 my-lg-0 d-flex">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Ara..." aria-label="Search"
+                         onChange={(e) => props.setSearch (e.target.value)}
+                        />
+                        
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
             <div>
             <div>
                 <Link to={"/contacts/add"} className='btn btn-success ml-auto'>
